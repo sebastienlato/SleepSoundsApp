@@ -56,6 +56,11 @@ final class AudioManager: ObservableObject {
         playingSoundIDs.remove(id)
     }
 
+    func stopAllSounds() {
+        let activeIDs = playingSoundIDs
+        activeIDs.forEach { stopSound($0) }
+    }
+
     func toggleSound(_ id: String) {
         if playingSoundIDs.contains(id) {
             stopSound(id)
