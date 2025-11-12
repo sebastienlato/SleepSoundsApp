@@ -1,6 +1,7 @@
 import Combine
 import Foundation
 
+/// Counts down in one-second ticks and stops audio playback once the timer elapses.
 @MainActor
 final class SleepTimerManager: ObservableObject {
     @Published private(set) var remainingTime: TimeInterval?

@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Root surface that lists available sounds and routes to timer controls.
 struct SoundboardView: View {
     @StateObject private var audioManager: AudioManager
     @StateObject private var timerManager: SleepTimerManager
@@ -51,6 +52,7 @@ struct SoundboardView: View {
     }
 }
 
+/// Pulls the sleep timer controls into scroll context when a timer is already running.
 private struct ActiveSleepTimerBanner: View {
     let remainingText: String
     let cancelAction: () -> Void

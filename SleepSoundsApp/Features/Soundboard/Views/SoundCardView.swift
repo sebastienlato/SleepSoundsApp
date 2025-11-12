@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Displays a single ambient track with play toggle and contextual volume slider.
 struct SoundCardView: View {
     let sound: SleepSound
     @ObservedObject var audioManager: AudioManager
@@ -49,6 +50,7 @@ struct SoundCardView: View {
     }
 }
 
+/// Keeps slider logic separate so state changes animate cleanly.
 private struct VolumeSlider: View {
     let sound: SleepSound
     @ObservedObject var audioManager: AudioManager

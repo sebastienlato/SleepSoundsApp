@@ -3,6 +3,7 @@ import Combine
 import Foundation
 import UIKit
 
+/// Handles looping AVAudioPlayer instances for each ambient track and bridges playback to SwiftUI.
 @MainActor
 final class AudioManager: ObservableObject {
     @Published private(set) var playingSoundIDs: Set<String> = []
@@ -22,6 +23,7 @@ final class AudioManager: ObservableObject {
         observeAudioSession()
     }
 
+    /// Lazily loads an audio asset and begins looping playback.
     func playSound(_ id: String) {
         guard players[id] == nil else {
             players[id]?.play()
@@ -50,17 +52,20 @@ final class AudioManager: ObservableObject {
         }
     }
 
+    /// Stops playback for a specific sound and releases its player.
     func stopSound(_ id: String) {
         players[id]?.stop()
         players.removeValue(forKey: id)
         playingSoundIDs.remove(id)
     }
 
+    /// Convenience helper for scenarios like the sleep timer completion.
     func stopAllSounds() {
         let activeIDs = playingSoundIDs
         activeIDs.forEach { stopSound($0) }
     }
 
+    /// Returns play/pause semantics that the UI can bind to a single button.
     func toggleSound(_ id: String) {
         if playingSoundIDs.contains(id) {
             stopSound(id)
@@ -100,6 +105,7 @@ final class AudioManager: ObservableObject {
         }
     }
 
+    /// Rebuilds players when iOS resets media services and resumes playback after interruptions.
     private func observeAudioSession() {
         NotificationCenter.default.publisher(for: AVAudioSession.interruptionNotification)
             .receive(on: RunLoop.main)

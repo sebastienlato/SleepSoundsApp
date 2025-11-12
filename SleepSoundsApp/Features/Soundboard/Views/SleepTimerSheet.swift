@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Wheel-based picker that lets the user start, update, or cancel a sleep timer.
 struct SleepTimerSheet: View {
     @ObservedObject var timerManager: SleepTimerManager
     @Environment(\.dismiss) private var dismiss
