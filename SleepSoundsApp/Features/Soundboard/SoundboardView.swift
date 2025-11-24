@@ -14,7 +14,7 @@ struct SoundboardView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 24) {
                     if let remaining = timerManager.formattedRemaining {
                         ActiveSleepTimerBanner(
@@ -49,6 +49,7 @@ struct SoundboardView: View {
                     .presentationDetents([.medium, .large])
             }
         }
+        .statusBarHidden(true)
     }
 }
 

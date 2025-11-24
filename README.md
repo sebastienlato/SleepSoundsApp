@@ -52,8 +52,9 @@ Tests live under `SleepSoundsAppTests/` once they are added; mirror the source s
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-11-12%20at%2013.44.13.png" alt="Soundboard list" width="45%">
-  <img src="screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-11-12%20at%2013.44.20.png" alt="Sleep timer sheet" width="45%">
+  <img src="screenshots/Screenshot1.png" alt="Soundboard overview" width="30%">
+  <img src="screenshots/Screenshot2.png" alt="Expanded sound controls" width="30%">
+  <img src="screenshots/Screenshot3.png" alt="Sleep timer configuration" width="30%">
 </p>
 
 ## Assets
